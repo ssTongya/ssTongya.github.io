@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/bear.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/bear.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前些日子才知道有 TypeScript 这个语言，有时候真的觉得自己孤陋寡闻，看来还是要多看多学习啊。以下记录一下此语言的语法：  TypeScript 是 JavaScript 的一个超集，扩展了 JavaScript 语法它支持 ES6，它可以编译成 JavaScript；  一、定义变量1. 基本数据类型的变量:数据类型数字和字符串 123let text:string &#x3D; &#39;芒果西米露&#39;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript">
+<meta property="og:url" content="http://yoursite.com/2019/07/07/TypeScript/index.html">
+<meta property="og:site_name" content="ssuTongya">
+<meta property="og:description" content="前些日子才知道有 TypeScript 这个语言，有时候真的觉得自己孤陋寡闻，看来还是要多看多学习啊。以下记录一下此语言的语法：  TypeScript 是 JavaScript 的一个超集，扩展了 JavaScript 语法它支持 ES6，它可以编译成 JavaScript；  一、定义变量1. 基本数据类型的变量:数据类型数字和字符串 123let text:string &#x3D; &#39;芒果西米露&#39;">
+<meta property="article:published_time" content="2019-07-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-07-08T00:52:50.503Z">
+<meta property="article:author" content="Su Tong">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/07/07/TypeScript/"/>
+
+
+
+
+
+  <title>TypeScript | ssuTongya</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ssuTongya</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Nothing is impossible</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/07/TypeScript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Su Tong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ssuTongya">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">TypeScript</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-07T00:00:00+08:00">
+                2019-07-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前些日子才知道有 TypeScript 这个语言，有时候真的觉得自己孤陋寡闻，看来还是要多看多学习啊。以下记录一下此语言的语法：</p>
+<blockquote>
+<p>TypeScript 是 JavaScript 的一个超集，扩展了 JavaScript 语法<br>它支持 ES6，它可以编译成 JavaScript；</p>
+</blockquote>
+<h4 id="一、定义变量"><a href="#一、定义变量" class="headerlink" title="一、定义变量"></a>一、定义变量</h4><h5 id="1-基本数据类型的变量-数据类型"><a href="#1-基本数据类型的变量-数据类型" class="headerlink" title="1. 基本数据类型的变量:数据类型"></a>1. 基本数据类型的变量:数据类型</h5><p><strong>数字和字符串</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> text:<span class="built_in">string</span> = <span class="string">'芒果西米露'</span>  <span class="comment">//字符串</span></span><br><span class="line"><span class="keyword">let</span> age:<span class="built_in">number</span> = <span class="number">12</span>    <span class="comment">//数字</span></span><br><span class="line"><span class="keyword">let</span>  sentence:<span class="built_in">string</span> = <span class="string">`hello,my favorite food is <span class="subst">$&#123;text&#125;</span>`</span>  <span class="comment">//模板字符串</span></span><br></pre></td></tr></table></figure>
+
+<p>当然也可以在 TypeScript 直接定义变量，不用定义数据类型；因为 TypeScript 是 JavaScript 的扩展，它支持任何 JavaScript 的语法。<br>如果在赋值的时候值的类型与预设的类型不一致的话，会报错，假如将上例<code>let age:number = 12</code>写成<code>let age:number = &#39;12&#39;</code>,运行代码的就会报错<code>Type &#39;&quot;12&quot;&#39; is not assignable to type &#39;number&#39;</code>.<br><strong>布尔值</strong></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let <span class="string">isBoolean:</span> <span class="keyword">boolean</span> = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+
+<p>但是，使用构造函数创造的对象不是布尔值，而是 Boolean 对象</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> isBoolean: <span class="built_in">Boolean</span> = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="number">1</span>);  <span class="comment">//[Boolean: true]</span></span><br></pre></td></tr></table></figure>
+
+<p>直接调用 Boolean 也可以返回一个 boolean 类型</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">直接调用<span class="keyword">Boolean</span>也可以返回一个<span class="keyword">boolean</span>类型</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在 TypeScript 中，boolean 是 JavaScript 中的基本类型，而 Boolean 是 JavaScript 中的构造函数。其他基本类型（除了 null 和 undefined）一样<br><strong>空值</strong><br>空值一般用在没有任何返回值的函数</p>
+</blockquote>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">testFn</span><span class="params">()</span>: void </span>&#123;</span><br><span class="line">    console.log(<span class="string">'this is test'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>声明一个 void 类型的变量时，值只能时 null 或 undefined</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">声明一个<span class="keyword">void</span>类型的变量时，值只能时<span class="literal">null</span>或<span class="literal">undefined</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>null 和 undefined</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> nullValue1:<span class="literal">null</span> = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">let</span> nullValue2:<span class="literal">null</span> = <span class="literal">undefined</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> uValue1:<span class="literal">undefined</span> = <span class="literal">undefined</span>;</span><br><span class="line"><span class="keyword">let</span> uValue2:<span class="literal">undefined</span> = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> erroV1:<span class="literal">null</span> = <span class="number">12</span> <span class="comment">//Error</span></span><br><span class="line"><span class="keyword">let</span> erroV2:<span class="literal">undefined</span> = <span class="number">12</span> <span class="comment">//Error</span></span><br></pre></td></tr></table></figure>
+
+<p>由此可见，null 和 undefined 可以互相赋值，不能被赋予其他类型的值。<br>与 void 的区别是，undefined 和 null 是所有类型的子类型。也就是说 undefined 和 null 可以赋值给其他类型的变量，但是 void 不可以</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> test1:<span class="built_in">number</span> = <span class="literal">null</span></span><br><span class="line"><span class="keyword">let</span> test2:<span class="built_in">boolean</span> = <span class="literal">undefined</span></span><br><span class="line"><span class="keyword">let</span> u:<span class="built_in">void</span> = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">let</span> test3:<span class="built_in">string</span> = u <span class="comment">//Error</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-数组-变量-数据类型-或者-变量-Array-lt-数据类型-gt-表示由此类型的元素组成数组"><a href="#2-数组-变量-数据类型-或者-变量-Array-lt-数据类型-gt-表示由此类型的元素组成数组" class="headerlink" title="2. 数组 变量:数据类型[] 或者 变量:Array&lt;数据类型&gt; 表示由此类型的元素组成数组"></a>2. 数组 变量:数据类型[] 或者 变量:Array&lt;数据类型&gt; 表示由此类型的元素组成数组</h5><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr1: <span class="built_in">number</span>[] = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> arr2: <span class="built_in">Array</span>&lt;<span class="built_in">string</span>&gt; = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]</span><br></pre></td></tr></table></figure>
+
+<p>这样写的话数组中的每个元素的类型都只能是预设的数据类型,很无奈吧</p>
+<h5 id="3-元组-元组类型允许表示一个已知元素数量和类型的数组。"><a href="#3-元组-元组类型允许表示一个已知元素数量和类型的数组。" class="headerlink" title="3.元组 元组类型允许表示一个已知元素数量和类型的数组。"></a>3.元组 元组类型允许表示一个已知元素数量和类型的数组。</h5><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> touple: [<span class="built_in">number</span>, <span class="built_in">string</span>] = [<span class="number">1</span>, <span class="string">'2'</span>]  <span class="comment">//这样是ok的</span></span><br><span class="line"><span class="keyword">let</span> touple: [<span class="built_in">number</span>, <span class="built_in">string</span>] = [<span class="string">'1'</span>,<span class="number">2</span>]   <span class="comment">//这样是会报错的</span></span><br><span class="line"><span class="keyword">let</span> touple: [<span class="built_in">number</span>, <span class="built_in">string</span>] = [<span class="number">2</span>]   <span class="comment">//这样是会报错的  (直接赋值需要提供所有的元素)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> touple: [<span class="built_in">number</span>, <span class="built_in">string</span>];</span><br><span class="line">touple[<span class="number">0</span>] = <span class="number">12</span>;<span class="comment">//ok</span></span><br><span class="line">touple[<span class="number">1</span>] = <span class="string">'34'</span>;<span class="comment">//ok</span></span><br></pre></td></tr></table></figure>
+
+<p>也就是说，虽然元组可以允许定义不同类型的变量，但是它竟然要预设的类型的顺序和元素的顺序也要一样，一一对应。但是当用 push 或者 unshift 增加元素时，会使用联合类型代替，也就是数据类型是 number 或者 string 都可以</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">touple</span><span class="selector-class">.unshift</span>(<span class="string">'3'</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>数组合并了相同类型的对象，而元组（Tuple）合并了不同类型的对象。</p>
+</blockquote>
+<h5 id="4-任意值"><a href="#4-任意值" class="headerlink" title="4.任意值"></a>4.任意值</h5><p>普通类型的值在赋值的过程中值的类型是不能改变的，但是如果是 any 类型，就可以被赋值为任意类型</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let test:number = 10;</span><br><span class="line"><span class="keyword">test </span>= '啦啦啦' //error</span><br><span class="line"></span><br><span class="line">let anyValue:any = 10;</span><br><span class="line">anyValue = '10' //ok</span><br></pre></td></tr></table></figure>
+
+<p>如果在定义变量时未定义类型未赋值，都会被推断成 any 类型</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">let</span> anyValue;</span><br><span class="line"><span class="attribute">anyValue</span> = <span class="number">12</span>;</span><br><span class="line"><span class="attribute">anyValue</span> = <span class="string">'12'</span></span><br></pre></td></tr></table></figure>
+
+<p>如果在定义变量时未定义类型但赋值，则会被默认成赋值的类型</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">let anyValue</span> = <span class="string">'12'</span>;</span><br><span class="line"><span class="attribute">anyValue</span> = 12 //error</span><br></pre></td></tr></table></figure>
+
+<p>等价于</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> anyValue:<span class="keyword">string</span> = <span class="string">'12'</span>;</span><br><span class="line">anyValue = <span class="number">12</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="5-联合类型"><a href="#5-联合类型" class="headerlink" title="5.联合类型"></a>5.联合类型</h5><p>联合类型允许变量不必只能是一种类型，只要是其中一个类型就可以</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="keyword">value</span>: number | <span class="keyword">string</span>;</span><br><span class="line"><span class="keyword">value</span> = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">value</span> = <span class="string">'456'</span>;</span><br><span class="line"><span class="keyword">value</span> = ture  <span class="comment">//error</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>联合类型的属性和方法</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">getLength</span>(<span class="params"><span class="keyword">params</span>: number | <span class="keyword">string</span></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">params</span>.length</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//报错 因为number类型不具有length属性</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> get<span class="constructor">Length(<span class="params">params</span>: <span class="params">number</span> | <span class="params">string</span>)</span> &#123;</span><br><span class="line">    return params.<span class="keyword">to</span><span class="constructor">String()</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//报错 因为toString 是number和string都有toString()属性，</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="二-接口"><a href="#二-接口" class="headerlink" title="二.接口"></a>二.接口</h4><p>我们可以使用接口自己定义对象的定义规则</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="symbol">Husband</span> &#123;</span><br><span class="line">    sex: <span class="built_in">string</span>;</span><br><span class="line">    <span class="built_in">int</span>erest: number;</span><br><span class="line">&#125;</span><br><span class="line">let myHusband: Husband = &#123; sex: <span class="string">'男'</span>, <span class="built_in">int</span>erest: <span class="number">123</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>以上，我们定义了 Husband 接口，包含有两个变量，一个是 string 类型，一个是 number 类型，这样，我们就约束了 myHusband 这个对象的规则。一般，接口的首字母用大写。<br>以下两种方式是不被允许的</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="symbol">Husband</span> &#123;</span><br><span class="line">    sex: <span class="built_in">string</span>;</span><br><span class="line">    <span class="built_in">int</span>erest: number;</span><br><span class="line">&#125;</span><br><span class="line">let myHusband: Husband = &#123;name:<span class="string">'许嵩'</span>, sex: <span class="string">'男'</span>, <span class="built_in">int</span>erest: <span class="number">123</span> &#125;;</span><br><span class="line"><span class="comment">//error  多了一些属性是不被允许的</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="symbol">Husband</span> &#123;</span><br><span class="line">    sex: <span class="built_in">string</span>;</span><br><span class="line">    <span class="built_in">int</span>erest: number;</span><br><span class="line">&#125;</span><br><span class="line">let myHusband: Husband = &#123;<span class="built_in">int</span>erest: <span class="number">123</span> &#125;;</span><br><span class="line"><span class="comment">//error  少了一些属性也是不被允许的</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>可选属性</strong><br>可选属性就是该属性可有可无。当一些属性是选填的时候，我们可以使用可选属性</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="symbol">Husband</span> &#123;</span><br><span class="line">    sex?: <span class="built_in">string</span>;</span><br><span class="line">    <span class="built_in">int</span>erest: number;</span><br><span class="line">&#125;</span><br><span class="line">let myHusband: Husband = &#123; <span class="built_in">int</span>erest: <span class="number">123</span> &#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>只读属性</strong><br>只读属性只能在创建的时候被赋值，之后赋值就会报错，使用 readonly 来定义</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Husband</span> &#123;</span></span><br><span class="line">    readonly <span class="string">sex:</span> string;</span><br><span class="line"><span class="symbol">    interest:</span> number;</span><br><span class="line">&#125;</span><br><span class="line">let <span class="string">myHusband:</span> Husband = &#123;<span class="string">sex:</span><span class="string">'男'</span>, <span class="string">interest:</span> <span class="number">123</span> &#125;;<span class="comment">//在创建的时候定义了sex属性</span></span><br><span class="line">myHusband.sex = <span class="string">'女'</span> <span class="comment">//error 不可更改</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>只读的约束存在于第一次给对象赋值的时候，而不是第一次给只读属性赋值的时候</p>
+</blockquote>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="symbol">Husband</span> &#123;</span><br><span class="line">    readonly sex: <span class="built_in">string</span>;</span><br><span class="line">    <span class="built_in">int</span>erest: number;</span><br><span class="line">&#125;</span><br><span class="line">let myHusband: Husband = &#123;<span class="built_in">int</span>erest: <span class="number">123</span> &#125;;<span class="comment">//error 因为在给myHusband赋值的时候，没有给sex赋值</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="三、函数"><a href="#三、函数" class="headerlink" title="三、函数"></a>三、函数</h4><p>我们可以用 typescript 对函数的参数和返回值进行约束</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function testFn(age: <span class="built_in">number</span>, <span class="built_in">name</span>: <span class="built_in">string</span>): <span class="built_in">string</span> &#123;</span><br><span class="line"><span class="built_in">    return</span> `hi,<span class="keyword">my</span> <span class="built_in">name</span> <span class="keyword">is</span> $&#123;<span class="built_in">name</span>&#125;,I'm $&#123;age&#125; years old.`</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中()中是对各个参数的约束，()后紧跟的就是返回值的类型<br><strong>可选参数</strong></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function testFn(<span class="built_in">name</span>: <span class="built_in">string</span>,age?: <span class="built_in">number</span>, ): <span class="built_in">string</span> &#123;</span><br><span class="line"><span class="built_in">    return</span> `hi,<span class="keyword">my</span> <span class="built_in">name</span> <span class="keyword">is</span> $&#123;<span class="built_in">name</span>&#125;,I'm $&#123;age&#125; years old.`</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意，<strong>可选参数必须跟在必填参数的后面</strong> &gt; <strong>参数默认值</strong></p>
+</blockquote>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function testFn(<span class="built_in">name</span>: <span class="built_in">string</span>, age: <span class="built_in">number</span> = <span class="number">12</span>, ): <span class="built_in">string</span> &#123;</span><br><span class="line"><span class="built_in">    return</span> `hi,<span class="keyword">my</span> <span class="built_in">name</span> <span class="keyword">is</span> $&#123;<span class="built_in">name</span>&#125;,I'm $&#123;age&#125; years old.`</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>至此，因为平时也没用过 typescript 就先学到了这个，等以后再继续补充</p>
+
+      
+    </div>
+    
+    
+    
+    
+       <div>
+           <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+       </div>
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/10/%E6%95%B0%E7%BB%84%E5%92%8C%E5%AF%B9%E8%B1%A1/" rel="prev" title="数组和对象">
+                数组和对象 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </、div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Su Tong</p>
+              <p class="site-description motion-element" itemprop="description">Nothing is impossible</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、定义变量"><span class="nav-number">1.</span> <span class="nav-text">一、定义变量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-基本数据类型的变量-数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">1. 基本数据类型的变量:数据类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-数组-变量-数据类型-或者-变量-Array-lt-数据类型-gt-表示由此类型的元素组成数组"><span class="nav-number">1.2.</span> <span class="nav-text">2. 数组 变量:数据类型[] 或者 变量:Array&lt;数据类型&gt; 表示由此类型的元素组成数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-元组-元组类型允许表示一个已知元素数量和类型的数组。"><span class="nav-number">1.3.</span> <span class="nav-text">3.元组 元组类型允许表示一个已知元素数量和类型的数组。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-任意值"><span class="nav-number">1.4.</span> <span class="nav-text">4.任意值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-联合类型"><span class="nav-number">1.5.</span> <span class="nav-text">5.联合类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-接口"><span class="nav-number">2.</span> <span class="nav-text">二.接口</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、函数"><span class="nav-number">3.</span> <span class="nav-text">三、函数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Su Tong</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
